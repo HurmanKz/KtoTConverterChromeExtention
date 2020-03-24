@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 200px;
+}
+
+.header {
+  padding: 20px;
+}
+
+.header .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.header .logo .logo-img {
+  width: 100px;
+  height: 100px;
+}
+
+.header .title {
+  font-size: 24px;
+  color: #212525;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: indigo;
+  color: white;
+  border: 1px solid indigo;
+  outline: none;
+  padding: 5px 15px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px #4c008288;
+}
