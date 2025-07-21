@@ -1,21 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="popup.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kazakh Text Transformer</title>
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="popup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="header">
-    <div class="logo">
-      <img src="icons/android-chrome-192x192.png" class="logo-img">
+    <div class="header">
+        <div class="header-content">
+            <div class="logo-wrapper">
+                <div class="logo">
+                    <img src="icons/android-chrome-192x192.png" class="logo-img" alt="Kristal Logo">
+                </div>
+                <div class="title-group">
+                    <h1 class="title">Kazakh Transformer</h1>
+                    <h2>سالەم فونت ىستەپ تۇر</h2>
+                    <p class="subtitle">Transform Kazakh text between three scripts seamlessly</p>
+                </div>
+            </div>
+            <div class="language-badge">
+                <span class="dot"></span>
+                KZ
+            </div>
+        </div>
     </div>
-    <h1 class="title">Hello Kristal</h1>
-  </div>
-  <div class="container">
-    <button class="btn-convert">Convert</button>
-  </div>
-  <script src="popup.js" charset="utf-8"></script>
+
+    <div class="container">
+        <button id="transformPage" class="transform-page-btn">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+            </svg>
+            Transform Current Page
+        </button>
+
+        <div class="settings-group">
+            <label class="checkbox-label">
+                <input type="checkbox" id="autoTranslate">
+                <span>Always transform pages automatically</span>
+            </label>
+            <button id="showOriginal" class="btn secondary">
+                Show Original
+            </button>
+        </div>
+
+        <div class="divider">
+            <span>or transform text manually</span>
+        </div>
+
+        <div class="transformer-box">
+            <textarea 
+                id="input-text" 
+                class="transformer-textarea" 
+                placeholder="Қазақша мәтінді осында енгізіңіз..."
+                rows="5"
+            ></textarea>
+            <div class="transform-arrow">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </div>
+            <textarea 
+                id="output-text" 
+                class="transformer-textarea" 
+                readonly 
+                placeholder="Transformed text will appear here..."
+                rows="5"
+            ></textarea>
+        </div>
+
+        <div class="button-group">
+            <button id="transformBtn" class="btn primary">Transform</button>
+            <button id="copyBtn" class="btn secondary">Copy</button>
+            <button id="clearBtn" class="btn secondary">Clear</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>© 2014-2025 KRISTAL</span>
+        <a href="http://kristal.kz" target="_blank" rel="noopener noreferrer">kristal.kz</a>
+    </div>
+    <script src="transformer.js"></script>
+    <script src="popup.js" charset="utf-8"></script>
 </body>
 </html>

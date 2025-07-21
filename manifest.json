@@ -1,15 +1,15 @@
 {
-  "name": "Kazakh Converter",
-  "version": "1.0",
-  "manifest_version": 2,
+  "name": "Kazakh transformer",
+  "version": "1.1",
+  "manifest_version": 3,
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["converter.js", "content.js"]
+      "js": ["transformer.js", "content.js"]
     }
   ],
-  "browser_action": {
-    "default_title": "Kazakh Converter",
+  "action": {
+    "default_title": "Kazakh transformer",
     "default_icon": {
       "16": "icons/favicon-16x16.png",
       "32": "icons/favicon-32x32.png",
@@ -18,17 +18,20 @@
     }
   },
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "service_worker": "background.js"
   },
   "permissions": [
+    "storage",
     "tabs",
-    "contextMenus",
-    "tts",
-    "declarativeContent",
+    "activeTab"
+  ],
+  "host_permissions": [
     "http://*/*",
     "https://*/*"
   ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com;"
+  },
   "icons": {
     "16": "icons/favicon-16x16.png",
     "32": "icons/favicon-32x32.png",
@@ -36,6 +39,11 @@
     "128": "icons/apple-touch-icon.png"
   },
   "homepage_url": "http://kristal.kz",
-  "omnibox": { "keyword" : "Kz" },
-  "web_accessible_resources": ["inject.js"]
+  "omnibox": { 
+    "keyword": "Kz" 
+  },
+  "web_accessible_resources": [{
+    "resources": ["fonts.css","fonts/KzOnly.ttf"],
+    "matches": ["<all_urls>"]
+  }]
 }
